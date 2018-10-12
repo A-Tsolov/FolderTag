@@ -1,0 +1,15 @@
+C:\Users\alex\source\repos\FolderTag\FolderTag\bin\Debug\FolderTag.exe.config
+C:\Users\alex\source\repos\FolderTag\FolderTag\bin\Debug\FolderTag.exe
+C:\Users\alex\source\repos\FolderTag\FolderTag\bin\Debug\FolderTag.pdb
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.csprojAssemblyReference.cache
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\MainWindow.g.cs
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\App.g.cs
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag_MarkupCompile.cache
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag_MarkupCompile.lref
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\MainWindow.baml
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.g.resources
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.Properties.Resources.resources
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.csproj.GenerateResource.cache
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.csproj.CoreCompileInputs.cache
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.exe
+C:\Users\alex\source\repos\FolderTag\FolderTag\obj\Debug\FolderTag.pdb
