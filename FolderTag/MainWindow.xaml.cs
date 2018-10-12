@@ -75,7 +75,7 @@ namespace FolderTag
             string path = selectedNode.Header.ToString();
             Node node = new Node(tags, Int32.Parse(RatingBox.Text), path);
             Results.Items.Add(node.ToString());
-            DataGrid1.Items.Add(node.ToString());
+        //    DataGrid1.Items.Add(node.ToString());
         }
 
 

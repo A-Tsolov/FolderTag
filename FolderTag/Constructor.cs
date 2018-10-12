@@ -8,5 +8,8 @@ namespace FolderTag
 {
     class Constructor
     {
+        static private List<Node> entries;
+
+
     }
 }
