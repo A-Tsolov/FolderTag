@@ -16,12 +16,22 @@ namespace FolderTag
             if (type.Equals("Folder"))
             {
                 Node node = new Folder(tags, rating, path);
+                if (NodePresent(node))
+                {
+                    return null;
+                }
                 entries.Add(node);
                 return node;
             }
             else if (type.Equals("File"))
             {
-                Node node = new File(tags, rating, path);
+                long size = new System.IO.FileInfo(path).Length;
+                MessageBox.Show(size.ToString());
+                Node node = new File(tags, rating, path, size);
+                if (NodePresent(node))
+                {
+                    return null;
+                }
                 entries.Add(node);
                 return node;
             }
@@ -31,34 +41,49 @@ namespace FolderTag
             }
         }
 
-
-
         // Check if file is present
-        public static bool filePresent(Node node)
+        private static bool FilePresent(File file)
+        {
+            foreach (File entry in entries)
+            {
+                if (file.GetSize() == entry.GetSize())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Check if folder is present
+        private static bool FolderPresent(Folder folder)
+        {
+            foreach (Node entry in entries)
+            {
+                if (entry.GetPath().Equals(folder.GetPath()))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Check if node is present
+        public static bool NodePresent(Node node)
         {
             if (node is File)
             {
                 File nodeFile = (File)node;
-                foreach (File file in entries)
-                {
-                    if(nodeFile.GetSize() == file.GetSize())
-                    {
-                        return true;
-                    }
-                }
+                return FilePresent(nodeFile);
             }
-            if (node is Folder)
+            else if (node is Folder)
             {
-                node = (Folder)node;
-                foreach (Node file in entries)
-                {
-                    if (node.GetPath().Equals(file.GetPath()))
-                    {
-                        return true;
-                    }
-                }
+                Folder folder = (Folder)node;
+                return FolderPresent(folder);
             }
-            return false;
+            else
+            {
+                throw new Exception("Invalid type");
+            }
         }
 
     public static List<Node> GetEntries()

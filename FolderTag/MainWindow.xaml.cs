@@ -22,7 +22,7 @@ namespace FolderTag
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string path;
+        private string pathRoot;
 
 
         public MainWindow()
@@ -38,10 +38,10 @@ namespace FolderTag
                 if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
                     string[] files = Directory.GetFiles(fbd.SelectedPath);
-                    path = fbd.SelectedPath;
+                    pathRoot = fbd.SelectedPath;
                 }
             }
-            ListDirectory(DirectoryTree, path);
+            ListDirectory(DirectoryTree, pathRoot);
         }
 
         // Populate TreeView
@@ -71,18 +71,34 @@ namespace FolderTag
             return node;
         }
 
-        // Add tag
+        // Add Entry
         private void AddEntry(object sender, RoutedEventArgs e)
         {
             string tagsStr = TagBox.Text;
             List<string> tags = tagsStr.Split(' ').ToList();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
-            //string fileName = selectedNode.Header.ToString();
-            //List<string> emptyList = new List<string>();
-            //int rating = 0;
             int rating = Int32.Parse(RatingBox.Text);
+            string path = getPath(selectedNode);
             Node node = Constructor.createNode(tags,rating,path,"File");
-            Results.Items.Add(node);
+            if (node != null)
+            {
+                Results.Items.Add(node);
+            }
+            
+        }
+
+        // Returns the path of the selected node
+        private string getPath(TreeViewItem item)
+        {
+            string path = "";
+            string filename = item.Header.ToString();
+            TreeViewItem currentNode = item;
+            while (currentNode != null)
+            {
+                path = "\\" + currentNode.Header.ToString() + path;
+                currentNode = currentNode.Parent as TreeViewItem;
+            }
+            return path.TrimStart('\\');
         }
 
         private void PopulateResult()

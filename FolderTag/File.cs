@@ -8,13 +8,14 @@ namespace FolderTag
 {
     class File: Node
     {
-        private ulong size;
+        private long size;
 
-        public File(List<string> tags, int rating, string path) : base(tags, rating, path)
+        public File(List<string> tags, int rating, string path, long size) : base(tags, rating, path)
         {
+            this.size = size;
         }
 
-        public ulong GetSize()
+        public long GetSize()
         {
             return this.size;
         }
