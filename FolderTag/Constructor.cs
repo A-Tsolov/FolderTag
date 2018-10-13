@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
 
 namespace FolderTag
 {
-    class Constructor
+    static class Constructor
     {
-        static private List<Node> entries;
+        static private List<Node> entries = new List<Node>();
 
-        public void createNode(List<string> tags, int rating, string path, string type)
+        public static Node createNode(List<string> tags, int rating, string path, string type)
         {
             if (type.Equals("Folder"))
             {
                 Node node = new Folder(tags, rating, path);
                 entries.Add(node);
+                return node;
             }
             else if (type.Equals("File"))
             {
                 Node node = new File(tags, rating, path);
                 entries.Add(node);
+                return node;
             }
             else
             {
@@ -29,14 +31,17 @@ namespace FolderTag
             }
         }
 
-        public bool filePresent(Node node)
+
+
+        // Check if file is present
+        public static bool filePresent(Node node)
         {
             if (node is File)
             {
-                node = (File)node;
-                foreach (Node file in entries)
+                File nodeFile = (File)node;
+                foreach (File file in entries)
                 {
-                    if(node.GetSize() == file.GetSize())
+                    if(nodeFile.GetSize() == file.GetSize())
                     {
                         return true;
                     }
@@ -56,21 +61,10 @@ namespace FolderTag
             return false;
         }
 
-        public bool checkFileSize(Node file)
+    public static List<Node> GetEntries()
         {
-            return (file.size)
+            return entries;
         }
 
-        //public static Node CreateFolder(List<string> tags, int rating, string path)
-        //{
-        //    Node folder = new Node(tags, rating, path);
-        //    return folder;
-        //}
-
-        //public static Node CreateFile(List<string> tags, int rating, string path)
-        //{
-        //    Node file = new Node(tags, rating, path);
-        //    return file;
-        //}
     }
 }

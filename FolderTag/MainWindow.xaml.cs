@@ -44,6 +44,7 @@ namespace FolderTag
             ListDirectory(DirectoryTree, path);
         }
 
+        // Populate TreeView
         private void ListDirectory(System.Windows.Controls.TreeView treeView, string path)
         {
             treeView.Items.Clear();
@@ -51,8 +52,10 @@ namespace FolderTag
             TreeViewItem root = CreateDirectoryNode(rootDirectoryInfo);
             root.IsExpanded = true;
             treeView.Items.Add(root);
+            PopulateResult();
         }
 
+        // Populate TreeView
         private static TreeViewItem CreateDirectoryNode(DirectoryInfo directoryinfo)
         {
             TreeViewItem node = new TreeViewItem();
@@ -68,17 +71,34 @@ namespace FolderTag
             return node;
         }
 
+        // Add tag
         private void AddEntry(object sender, RoutedEventArgs e)
         {
             string tagsStr = TagBox.Text;
             List<string> tags = tagsStr.Split(' ').ToList();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
-            string path = selectedNode.Header.ToString();
-            Node node = new Node(tags, Int32.Parse(RatingBox.Text), path);
-            Results.Items.Add(node.ToString());
-        //    DataGrid1.Items.Add(node.ToString());
+            //string fileName = selectedNode.Header.ToString();
+            //List<string> emptyList = new List<string>();
+            //int rating = 0;
+            int rating = Int32.Parse(RatingBox.Text);
+            Node node = Constructor.createNode(tags,rating,path,"File");
+            Results.Items.Add(node);
         }
 
+        private void PopulateResult()
+        {
+            List<Node> entries = Constructor.GetEntries();
+            foreach(Node node in entries)
+            {
+                Results.Items.Add(node.GetPath());
+            }
+        }
+
+        private void AddEntryToTrees(Node node)
+        {
+            Results.Items.Add(node.GetPath());
+            ResultsFirstPage.Items.Add(node);
+        }
 
     }
 }

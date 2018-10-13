@@ -21,11 +21,12 @@
                         <ListBoxItem Content="5"/>
                     </ComboBox>
                     <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="127" Margin="400,0,0,10" Click="ChooseDirectory"/>
+                    <ListBox x:Name="ResultsFirstPage" HorizontalAlignment="Left" Height="264" VerticalAlignment="Top" Width="289" Margin="407,77,0,0"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">
                 <Grid Background="#FFE5E5E5" Height="391" VerticalAlignment="Top">
-                    <ListBox x:Name="Results" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="222" Margin="10,10,0,0"/>
+                    <ListBox x:Name="Results" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="467" Margin="10,10,0,0"/>
                 </Grid>
             </TabItem>
         </TabControl>

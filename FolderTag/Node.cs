@@ -26,7 +26,9 @@ namespace FolderTag
 
         public override string ToString()
         {
-            return path;
+            string tagsString = String.Join(" ", tags);
+            return tagsString + rating.ToString() + path;
         }
+
     }
 }
