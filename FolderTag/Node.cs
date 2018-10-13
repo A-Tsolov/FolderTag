@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FolderTag
 {
-    class Node
+    abstract class Node
     {
         private List<string> tags;
         private int rating;
@@ -17,6 +17,11 @@ namespace FolderTag
             this.tags = tags;
             this.rating = rating;
             this.path = path;
+        }
+
+        public string GetPath()
+        {
+            return this.path;
         }
 
         public override string ToString()

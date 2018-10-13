@@ -24,6 +24,7 @@ namespace FolderTag
     {
         private string path;
 
+
         public MainWindow()
         {
             InitializeComponent();
