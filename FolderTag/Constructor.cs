@@ -18,6 +18,7 @@ namespace FolderTag
                 Node node = new Folder(tags, rating, path);
                 if (NodePresent(node))
                 {
+
                     return null;
                 }
                 entries.Add(node);
@@ -39,6 +40,36 @@ namespace FolderTag
             {
                 throw new ArgumentException("Invalid type");
             }
+        }
+
+        public static Node ReturnNodeWithSize(long size)
+        {
+            foreach (Node entry in entries)
+            {
+                if (entry is File)
+                {
+                    File file = (File)entry;
+                    if (file.GetSize() == size)
+                    {
+                        return file;
+                    }
+                } 
+            }
+            return null;
+        }
+
+        //public static void UpdateNode()
+        //{
+
+        //}
+
+        public static void UpdateTagList(Node node, List<string> newTags)
+        {
+            List<string> tags = node.GetTags();
+            var noDupes = new HashSet<string>(tags); tags.Clear();
+            tags.AddRange(noDupes);
+            node.SetTags(tags);
+        //    return tags;
         }
 
         // Check if file is present

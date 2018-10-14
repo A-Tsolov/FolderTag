@@ -74,8 +74,7 @@ namespace FolderTag
         // Add Entry
         private void AddEntry(object sender, RoutedEventArgs e)
         {
-            string tagsStr = TagBox.Text;
-            List<string> tags = tagsStr.Split(' ').ToList();
+            List<string> tags = FormTagList();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
             int rating = Int32.Parse(RatingBox.Text);
             string path = getPath(selectedNode);
@@ -83,6 +82,7 @@ namespace FolderTag
             if (node != null)
             {
                 Results.Items.Add(node);
+                ShowTags();
             }
             
         }
@@ -113,8 +113,63 @@ namespace FolderTag
         private void AddEntryToTrees(Node node)
         {
             Results.Items.Add(node.GetPath());
-            ResultsFirstPage.Items.Add(node);
+            TagsFirstPage.Items.Add(node);
         }
 
+        // Take string of tags from the textbox and returns a list of strings 
+        private List<string> FormTagList()
+        {
+            string tagsStr = TagBox.Text;
+            List<string> tags = tagsStr.Split(' ').ToList();
+            return tags;
+        }
+
+        //private void UpdateTags(object sender, RoutedPropertyChangedEventArgs<object> e)
+        //{
+            
+        //}
+
+
+
+        private void ShowTags()
+        {
+            TagsFirstPage.Items.Clear();
+            TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
+            string path = getPath(selectedNode);
+            long size = new System.IO.FileInfo(path).Length;
+            Node node = Constructor.ReturnNodeWithSize(size);
+            if (node != null)
+            {
+                List<string> tags = node.GetTags();
+                foreach (string tag in tags)
+                {
+                    TagsFirstPage.Items.Add(tag);
+                }
+            }
+        }
+
+        private void PrintTags(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            ShowTags();
+        }
+
+        private void RemoveTag(object sender, RoutedEventArgs e)
+        {
+            var selectedObject = TagsFirstPage.SelectedItem;
+            if (selectedObject == null)
+            {
+                return;
+            }
+            string selectedTag = selectedObject.ToString();
+            TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
+            string path = getPath(selectedNode);
+            long size = new System.IO.FileInfo(path).Length;
+            Node node = Constructor.ReturnNodeWithSize(size);
+            if (node != null)
+            {
+                node.RemoveTag(selectedTag);
+            }
+            ShowTags();
+        }
     }
 }

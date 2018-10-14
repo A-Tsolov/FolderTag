@@ -10,7 +10,7 @@
         <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792">
             <TabItem Header="Add" Margin="-2,-2,-79,0">
                 <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" Width="786" Height="391" VerticalAlignment="Bottom">
-                    <TreeView x:Name="DirectoryTree" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="381" Margin="10,10,0,0"/>
+                    <TreeView x:Name="DirectoryTree" HorizontalAlignment="Left" Height="371" VerticalAlignment="Top" Width="381" Margin="10,10,0,0" SelectedItemChanged="PrintTags"/>
                     <Button Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="701,10,0,0" Height="23" Click="AddEntry"/>
                     <TextBox x:Name="TagBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Enter Tag" VerticalAlignment="Top" Width="289" Margin="407,10,0,0"/>
                     <ComboBox x:Name="RatingBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="407,38,0,0">
@@ -21,7 +21,8 @@
                         <ListBoxItem Content="5"/>
                     </ComboBox>
                     <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="127" Margin="400,0,0,10" Click="ChooseDirectory"/>
-                    <ListBox x:Name="ResultsFirstPage" HorizontalAlignment="Left" Height="264" VerticalAlignment="Top" Width="289" Margin="407,77,0,0"/>
+                    <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Left" Height="264" VerticalAlignment="Top" Width="289" Margin="407,77,0,0"/>
+                    <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="701,77,0,0" VerticalAlignment="Top" Width="75" Click="RemoveTag"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">

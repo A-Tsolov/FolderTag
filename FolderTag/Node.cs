@@ -24,11 +24,25 @@ namespace FolderTag
             return this.path;
         }
 
+        public List<string> GetTags()
+        {
+            return tags;
+        }
+
+        public void SetTags(List<string> tags)
+        {
+            this.tags = tags;
+        }
+
         public override string ToString()
         {
             string tagsString = String.Join(" ", tags);
             return tagsString + rating.ToString() + path;
         }
 
+        public void RemoveTag(string tag)
+        {
+            tags.Remove(tag);
+        }
     }
 }
