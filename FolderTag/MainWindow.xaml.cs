@@ -41,7 +41,10 @@ namespace FolderTag
                     pathRoot = fbd.SelectedPath;
                 }
             }
-            ListDirectory(DirectoryTree, pathRoot);
+            if (pathRoot != null){
+                ListDirectory(DirectoryTree, pathRoot);
+            }
+            
         }
 
         // Populate TreeView
@@ -78,13 +81,13 @@ namespace FolderTag
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
             int rating = Int32.Parse(RatingBox.Text);
             string path = getPath(selectedNode);
-            Node node = Constructor.createNode(tags,rating,path,"File");
+            Node node = Constructor.createNode(tags, rating, path, "File");
             if (node != null)
             {
                 Results.Items.Add(node);
                 ShowTags();
             }
-            
+
         }
 
         // Returns the path of the selected node
@@ -104,7 +107,7 @@ namespace FolderTag
         private void PopulateResult()
         {
             List<Node> entries = Constructor.GetEntries();
-            foreach(Node node in entries)
+            foreach (Node node in entries)
             {
                 Results.Items.Add(node.GetPath());
             }
@@ -126,7 +129,7 @@ namespace FolderTag
 
         //private void UpdateTags(object sender, RoutedPropertyChangedEventArgs<object> e)
         //{
-            
+
         //}
 
 
