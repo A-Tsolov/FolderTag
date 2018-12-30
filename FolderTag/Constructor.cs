@@ -42,6 +42,22 @@ namespace FolderTag
             }
         }
 
+        public static Node ReturnFolderWithPath(string path)
+        {
+            foreach (Node entry in entries)
+            {
+                if (entry is Folder)
+                {
+                    Folder folder = (Folder)entry;
+                    if (folder.GetPath() == path)
+                    {
+                        return folder;
+                    }
+                }
+            }
+            return null;
+        }
+
         public static Node ReturnNodeWithSize(long size)
         {
             foreach (Node entry in entries)

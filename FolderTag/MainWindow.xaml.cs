@@ -81,7 +81,15 @@ namespace FolderTag
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
             int rating = Int32.Parse(RatingBox.Text);
             string path = getPath(selectedNode);
-            Node node = Constructor.createNode(tags, rating, path, "File");
+            Node node = null;
+            try
+            {
+                node = Constructor.createNode(tags, rating, path, "File");
+            }
+            catch (FileNotFoundException)
+            {
+                System.Windows.MessageBox.Show("Does not work with folders");
+            }
             if (node != null)
             {
                 Results.Items.Add(node);
@@ -139,8 +147,15 @@ namespace FolderTag
             TagsFirstPage.Items.Clear();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
             string path = getPath(selectedNode);
-            long size = new System.IO.FileInfo(path).Length;
-            Node node = Constructor.ReturnNodeWithSize(size);
+            Node node = null;
+            if (System.IO.Directory.Exists(path)) {
+                node = Constructor.ReturnFolderWithPath(path);
+            }
+            if (System.IO.File.Exists(path)){
+                long size = new System.IO.FileInfo(path).Length;
+                node = Constructor.ReturnNodeWithSize(size);
+            }
+            
             if (node != null)
             {
                 List<string> tags = node.GetTags();
@@ -150,6 +165,8 @@ namespace FolderTag
                 }
             }
         }
+
+
 
         private void PrintTags(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
