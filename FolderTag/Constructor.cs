@@ -13,6 +13,10 @@ namespace FolderTag
 
         public static Node createNode(List<string> tags, int rating, string path, string type)
         {
+            if (path==null){
+                MessageBox.Show("Invalid file");
+                throw new ArgumentException("Invalid file");
+            }
             if (type.Equals("Folder"))
             {
                 Node node = new Folder(tags, rating, path);
@@ -26,9 +30,15 @@ namespace FolderTag
             }
             else if (type.Equals("File"))
             {
+                // check if file already exists
                 long size = new System.IO.FileInfo(path).Length;
-                MessageBox.Show(size.ToString());
-                Node node = new File(tags, rating, path, size);
+                Node node = ReturnNodeWithSize(size);
+                if (node != null)
+                {
+                    return node;
+                }
+                //MessageBox.Show(size.ToString());
+                node = new File(tags, rating, path, size);
                 if (NodePresent(node))
                 {
                     return null;

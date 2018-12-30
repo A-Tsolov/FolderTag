@@ -79,6 +79,10 @@ namespace FolderTag
         {
             List<string> tags = FormTagList();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
+            if (selectedNode == null){
+                System.Windows.MessageBox.Show("Select a file");
+                return;
+            }
             int rating = 0;
             try
             {
@@ -90,6 +94,7 @@ namespace FolderTag
                 return;
             }
             string path = getPath(selectedNode);
+
             Node node = null;
             try
             {
@@ -99,9 +104,11 @@ namespace FolderTag
             {
                 System.Windows.MessageBox.Show("Does not work with folders");
             }
+
             if (node != null)
             {
-                Results.Items.Add(node);
+
+                //Results.Items.Add(node);
                 ShowTags();
             }
 
@@ -111,7 +118,15 @@ namespace FolderTag
         private string getPath(TreeViewItem item)
         {
             string path = "";
-            string filename = item.Header.ToString();
+            try
+            {
+                string filename = item.Header.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                System.Windows.MessageBox.Show("Select an item");
+                return null;
+            }
             TreeViewItem currentNode = item;
             while (currentNode != null)
             {
@@ -155,6 +170,10 @@ namespace FolderTag
         {
             TagsFirstPage.Items.Clear();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
+            if (selectedNode == null)
+            {
+                return;
+            }
             string path = getPath(selectedNode);
             Node node = null;
             if (System.IO.Directory.Exists(path)) {
