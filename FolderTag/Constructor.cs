@@ -35,6 +35,8 @@ namespace FolderTag
                 Node node = ReturnNodeWithSize(size);
                 if (node != null)
                 {
+                    UpdateTagList(node,tags);
+                    //node.SetTags(tags);
                     return node;
                 }
                 //MessageBox.Show(size.ToString());
@@ -91,11 +93,17 @@ namespace FolderTag
 
         public static void UpdateTagList(Node node, List<string> newTags)
         {
-            List<string> tags = node.GetTags();
-            var noDupes = new HashSet<string>(tags); tags.Clear();
-            tags.AddRange(noDupes);
-            node.SetTags(tags);
-        //    return tags;
+            List<string> oldTags = node.GetTags();
+
+            
+
+            newTags.AddRange(oldTags);
+            var noDupes = new HashSet<string>(newTags); 
+            newTags.Clear();
+            newTags.AddRange(noDupes);
+
+            node.SetTags(newTags);
+            //return tags;
         }
 
         // Check if file is present

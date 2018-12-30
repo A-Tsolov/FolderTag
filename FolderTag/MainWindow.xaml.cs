@@ -118,15 +118,10 @@ namespace FolderTag
         private string getPath(TreeViewItem item)
         {
             string path = "";
-            try
-            {
-                string filename = item.Header.ToString();
-            }
-            catch (NullReferenceException)
-            {
-                System.Windows.MessageBox.Show("Select an item");
-                return null;
-            }
+
+            string filename = item.Header.ToString();
+
+
             TreeViewItem currentNode = item;
             while (currentNode != null)
             {
