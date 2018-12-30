@@ -40,6 +40,11 @@ namespace FolderTag
             return tagsString + rating.ToString() + path;
         }
 
+        public void AddTag(string ta)
+        {
+
+        }
+
         public void RemoveTag(string tag)
         {
             tags.Remove(tag);

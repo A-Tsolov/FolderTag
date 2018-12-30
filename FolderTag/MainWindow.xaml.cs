@@ -79,7 +79,16 @@ namespace FolderTag
         {
             List<string> tags = FormTagList();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
-            int rating = Int32.Parse(RatingBox.Text);
+            int rating = 0;
+            try
+            {
+                rating = Int32.Parse(RatingBox.Text);
+            }
+            catch (System.FormatException)
+            {
+                System.Windows.MessageBox.Show("Enter a score");
+                return;
+            }
             string path = getPath(selectedNode);
             Node node = null;
             try
