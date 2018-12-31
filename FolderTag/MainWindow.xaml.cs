@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Forms;
+using System.Data;
 
 namespace FolderTag
 {
@@ -213,6 +214,38 @@ namespace FolderTag
                 node.RemoveTag(selectedTag);
             }
             ShowTags();
+        }
+
+        private void fillData()
+        {
+            DataTable dt = new DataTable();
+            DataColumn path = new DataColumn("Path",typeof(string));
+            DataColumn tags = new DataColumn("Tags",typeof(string));
+            DataColumn rating = new DataColumn("Rating",typeof(int));
+
+            dt.Columns.Add(path);
+            dt.Columns.Add(tags);
+            dt.Columns.Add(rating);
+
+            DataRow firstRow = dt.NewRow();
+            firstRow[0]="some path";
+            firstRow[1]="some tags";
+            firstRow[2]=3;
+            
+            DataRow secondtRow = dt.NewRow();
+            secondtRow[0]="some path";
+            secondtRow[1]="some tags";
+            secondtRow[2]=3;
+
+            dt.Rows.Add(firstRow);
+            dt.Rows.Add(secondtRow);
+
+            entriesGrid.ItemsSource = dt.DefaultView;
+        }
+
+        private void load_entries(object sender, RoutedEventArgs e)
+        {
+            fillData();
         }
     }
 }
