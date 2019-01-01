@@ -47,8 +47,18 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">
-                <Grid Background="#FFE5E5E5" Height="391" VerticalAlignment="Top" HorizontalAlignment="Left" Width="786">
-                    <DataGrid x:Name="entriesGrid" Height="267" Margin="7,114,0,0" VerticalAlignment="Top" Width="769" RenderTransformOrigin="1,0" Loaded="load_entries" IsReadOnly="True" HorizontalAlignment="Left"/>
+                <Grid Background="#FFE5E5E5" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="entriesGrid" Height="Auto" Margin="10" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="1,0" Loaded="load_entries" IsReadOnly="True" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>
