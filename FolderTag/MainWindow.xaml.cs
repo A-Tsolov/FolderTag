@@ -56,7 +56,7 @@ namespace FolderTag
             TreeViewItem root = CreateDirectoryNode(rootDirectoryInfo);
             root.IsExpanded = true;
             treeView.Items.Add(root);
-            PopulateResult();
+            //PopulateResult();
         }
 
         // Populate TreeView
@@ -132,18 +132,18 @@ namespace FolderTag
             return path.TrimStart('\\');
         }
 
-        private void PopulateResult()
-        {
-            List<Node> entries = Constructor.GetEntries();
-            foreach (Node node in entries)
-            {
-                Results.Items.Add(node.GetPath());
-            }
-        }
+        //private void PopulateResult()
+        //{
+        //    List<Node> entries = Constructor.GetEntries();
+        //    foreach (Node node in entries)
+        //    {
+        //        Results.Items.Add(node.GetPath());
+        //    }
+        //}
 
         private void AddEntryToTrees(Node node)
         {
-            Results.Items.Add(node.GetPath());
+            //Results.Items.Add(node.GetPath());
             TagsFirstPage.Items.Add(node);
         }
 
