@@ -19,6 +19,11 @@ namespace FolderTag
             this.path = path;
         }
 
+        public int GetRating()
+        {
+            return this.rating;
+        }
+
         public string GetPath()
         {
             return this.path;

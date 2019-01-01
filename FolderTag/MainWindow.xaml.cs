@@ -227,18 +227,15 @@ namespace FolderTag
             dt.Columns.Add(tags);
             dt.Columns.Add(rating);
 
-            DataRow firstRow = dt.NewRow();
-            firstRow[0]="some path";
-            firstRow[1]="some tags";
-            firstRow[2]=3;
-            
-            DataRow secondtRow = dt.NewRow();
-            secondtRow[0]="some path";
-            secondtRow[1]="some tags";
-            secondtRow[2]=3;
-
-            dt.Rows.Add(firstRow);
-            dt.Rows.Add(secondtRow);
+            List<Node> entries = Constructor.GetEntries();
+            foreach (Node entry in entries)
+            {
+                DataRow row = dt.NewRow();
+                row[0] = entry.GetPath();
+                row[1] = String.Join(", ", entry.GetTags());
+                row[2] = entry.GetRating();
+                dt.Rows.Add(row);
+            }
 
             entriesGrid.ItemsSource = dt.DefaultView;
         }
