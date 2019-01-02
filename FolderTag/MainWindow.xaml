@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FolderTag"
         mc:Ignorable="d"
-        Title="MainWindow" Height="486.849" Width="837.965" ResizeMode="CanResizeWithGrip">
+        Title="MainWindow" Height="351.849" Width="837.965" ResizeMode="CanResizeWithGrip" MinWidth="830" MinHeight="460">
+    <Window.BorderBrush>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.BorderBrush>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -15,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
             <TabItem Header="Add" Margin="-2,-2,-79,0">
-                <Grid Background="#FFE5E5E5" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid Background="#FFE5E5E5" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="800" MinHeight="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
@@ -31,19 +37,19 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TreeView x:Name="DirectoryTree" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,0,0" SelectedItemChanged="PrintTags" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
-                    <Button Content="Add" HorizontalAlignment="Left" Width="75" Margin="46,10,0,0" Click="AddEntry" Grid.Column="5" Height="23" VerticalAlignment="Top"/>
-                    <TextBox x:Name="TagBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Enter Tag" Width="Auto" Margin="10,10,0,45" Grid.Column="3" Grid.ColumnSpan="2"/>
-                    <ComboBox x:Name="RatingBox" HorizontalAlignment="Left" Width="120" Margin="14,0,0,10" Height="22" VerticalAlignment="Bottom" Grid.Column="3" Grid.ColumnSpan="2">
+                    <TreeView x:Name="DirectoryTree" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,0,10" SelectedItemChanged="PrintTags" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Width="75" Margin="10,10,0,0" Click="AddEntry" Grid.Column="5" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.547,2.35"/>
+                    <TextBox x:Name="TagBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Enter Tag" Width="Auto" Margin="10,10,10,45" Grid.Column="3" Grid.ColumnSpan="2" Height="20"/>
+                    <ComboBox x:Name="RatingBox" HorizontalAlignment="Left" Width="145" Margin="10,0,0,10" Height="21" VerticalAlignment="Bottom" Grid.Column="3">
                         <ListBoxItem Content="1"/>
                         <ListBoxItem Content="2"/>
                         <ListBoxItem Content="3"/>
                         <ListBoxItem Content="4"/>
                         <ListBoxItem Content="5"/>
                     </ComboBox>
-                    <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="111" Margin="14,0,0,20" Click="ChooseDirectory" Grid.Column="3" Grid.Row="4"/>
-                    <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,0,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
-                    <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="14,10,0,0" VerticalAlignment="Top" Width="75" Click="RemoveTag" Grid.Column="3" Grid.Row="4"/>
+                    <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="142" Margin="10,0,0,10" Click="ChooseDirectory" Grid.Column="3" Grid.Row="4" Height="32"/>
+                    <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,10,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+                    <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Click="RemoveTag" Grid.Column="3" Grid.Row="4" Height="23"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">
