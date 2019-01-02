@@ -256,5 +256,10 @@ namespace FolderTag
             entriesGrid.Items.Clear();
             fillData();
         }
+
+        private void search(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

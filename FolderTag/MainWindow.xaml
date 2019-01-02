@@ -6,12 +6,6 @@
         xmlns:local="clr-namespace:FolderTag"
         mc:Ignorable="d"
         Title="MainWindow" Height="351.849" Width="837.965" ResizeMode="CanResizeWithGrip" MinWidth="830" MinHeight="460">
-    <Window.BorderBrush>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="White" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.BorderBrush>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -55,9 +49,9 @@
             <TabItem Header="Search" Margin="80,-2,-179,0">
                 <Grid Background="#FFE5E5E5" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="134*"/>
+                        <RowDefinition Height="133*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -72,6 +66,11 @@
                             <DataGridTextColumn Header="Score" Binding="{Binding rating}" Width="40"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <TextBox TextWrapping="Wrap" Text="" Margin="10,27,10,0" Height="23" VerticalAlignment="Top"/>
+                    <TextBox TextWrapping="Wrap" Text="" Margin="10,76,10,0" Height="23" VerticalAlignment="Top"/>
+                    <Button Content="Search" HorizontalAlignment="Left" Width="75" Margin="10,104,0,0" Height="20" VerticalAlignment="Top" Click="search"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Exclude tags" VerticalAlignment="Top" Margin="10,55,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Include tags" VerticalAlignment="Top" Margin="10,6,0,0"/>
                 </Grid>
             </TabItem>
         </TabControl>
