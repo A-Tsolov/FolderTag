@@ -78,7 +78,8 @@ namespace FolderTag
         // Add Entry
         private void AddEntry(object sender, RoutedEventArgs e)
         {
-            List<string> tags = FormTagList();
+            string tagsStr = TagBox.Text;
+            List<string> tags = FormTagList(tagsStr);
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
             if (selectedNode == null){
                 System.Windows.MessageBox.Show("Select a file");
@@ -148,9 +149,8 @@ namespace FolderTag
         }
 
         // Take string of tags from the textbox and returns a list of strings 
-        private List<string> FormTagList()
+        private List<string> FormTagList(string tagsStr)
         {
-            string tagsStr = TagBox.Text;
             List<string> tags = tagsStr.Split(' ').ToList();
             return tags;
         }
@@ -218,37 +218,11 @@ namespace FolderTag
 
         private void fillData()
         {
-
-            List<Node> entries = Constructor.GetEntries();
+            List<Node> entries = search();
             foreach (Node entry in entries)
             {
                 entriesGrid.Items.Add(entry);
             }
-
-            //DataTable dt = new DataTable();
-            //DataColumn path = new DataColumn("Path",typeof(string));
-            //DataColumn tags = new DataColumn("Tags",typeof(string));
-            //DataColumn rating = new DataColumn("Rating",typeof(int));
-
-
-
-            //dt.Columns.Add(path);
-            //dt.Columns.Add(tags);
-            //dt.Columns.Add(rating);
-
-            //List<Node> entries = Constructor.GetEntries();
-            //foreach (Node entry in entries)
-            //{
-            //    DataRow row = dt.NewRow();
-            //    row[0] = entry.GetPath();
-            //    row[1] = String.Join(", ", entry.GetTags());
-            //    row[2] = entry.GetRating();
-            //    dt.Rows.Add(row);
-            //}
-
-            //entriesGrid.Rows.Add(" ", " ", 3);
-            //entriesGrid.ItemsSource = dt.DefaultView;
-            //entriesGrid.Columns[0].Width = 500;
         }
 
         private void load_entries(object sender, RoutedEventArgs e)
@@ -257,9 +231,32 @@ namespace FolderTag
             fillData();
         }
 
-        private void search(object sender, RoutedEventArgs e)
+        private List<Node> search()
         {
+            List<string> tagsInclude = FormTagList(TagsToInclude.Text);
+            List<string> tagsExclude = FormTagList(TagsToExclude.Text);
 
+            List<Node> entries = Constructor.GetEntries();
+            List<Node> searchResult = new List<Node>();
+            foreach (Node entry in entries)
+            {
+                searchResult.Add(entry);
+                foreach (string tag in tagsInclude)
+                {
+                    if (!entry.GetTags().Contains(tag) && TagsToInclude.Text != "")
+                    {
+                        searchResult.Remove(entry);
+                    }
+                }
+                foreach (string tag in tagsExclude)
+                {
+                    if (entry.GetTags().Contains(tag))
+                    {
+                        searchResult.Remove(entry);
+                    }
+                }
+            }
+            return searchResult;
         }
     }
 }
