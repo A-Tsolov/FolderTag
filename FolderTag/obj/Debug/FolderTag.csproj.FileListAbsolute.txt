@@ -27,3 +27,7 @@ C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\obj\Debug\FolderTag.csproj.G
 C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\obj\Debug\FolderTag.exe
 C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\obj\Debug\FolderTag.pdb
 C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\obj\Debug\FolderTag.csprojResolveAssemblyReference.cache
+C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\bin\Debug\FolderTag.exe.manifest
+C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\bin\Debug\FolderTag.application
+C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\obj\Debug\FolderTag.exe.manifest
+C:\Users\Nephalemm\Source\Repos\FolderTag\FolderTag\obj\Debug\FolderTag.application

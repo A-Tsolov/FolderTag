@@ -243,14 +243,14 @@ namespace FolderTag
                 searchResult.Add(entry);
                 foreach (string tag in tagsInclude)
                 {
-                    if (!entry.GetTags().Contains(tag) && TagsToInclude.Text != "")
+                    if ((TagsToInclude.Text != "") && !(entry.GetTags().Contains(tag)))
                     {
                         searchResult.Remove(entry);
                     }
                 }
                 foreach (string tag in tagsExclude)
                 {
-                    if (entry.GetTags().Contains(tag))
+                    if ((TagsToExclude.Text != "") && entry.GetTags().Contains(tag))
                     {
                         searchResult.Remove(entry);
                     }

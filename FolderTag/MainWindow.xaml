@@ -62,7 +62,7 @@
                         <DataGrid.Columns>
                             <!--  <DataGridTemplateColumn  />-->
                             <DataGridTextColumn Header="Path" Binding="{Binding path}" Width="*"/>
-                            <DataGridTextColumn Header="Tags" Binding="{Binding tags_string}" Width="*"/>
+                            <DataGridTextColumn Header="Tags" Binding="{Binding tags_string}" Width="350"/>
                             <DataGridTextColumn Header="Score" Binding="{Binding rating}" Width="40"/>
                         </DataGrid.Columns>
                     </DataGrid>
