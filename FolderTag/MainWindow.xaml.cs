@@ -218,30 +218,42 @@ namespace FolderTag
 
         private void fillData()
         {
-            DataTable dt = new DataTable();
-            DataColumn path = new DataColumn("Path",typeof(string));
-            DataColumn tags = new DataColumn("Tags",typeof(string));
-            DataColumn rating = new DataColumn("Rating",typeof(int));
-
-            dt.Columns.Add(path);
-            dt.Columns.Add(tags);
-            dt.Columns.Add(rating);
 
             List<Node> entries = Constructor.GetEntries();
             foreach (Node entry in entries)
             {
-                DataRow row = dt.NewRow();
-                row[0] = entry.GetPath();
-                row[1] = String.Join(", ", entry.GetTags());
-                row[2] = entry.GetRating();
-                dt.Rows.Add(row);
+                entriesGrid.Items.Add(entry);
             }
 
-            entriesGrid.ItemsSource = dt.DefaultView;
+            //DataTable dt = new DataTable();
+            //DataColumn path = new DataColumn("Path",typeof(string));
+            //DataColumn tags = new DataColumn("Tags",typeof(string));
+            //DataColumn rating = new DataColumn("Rating",typeof(int));
+
+
+
+            //dt.Columns.Add(path);
+            //dt.Columns.Add(tags);
+            //dt.Columns.Add(rating);
+
+            //List<Node> entries = Constructor.GetEntries();
+            //foreach (Node entry in entries)
+            //{
+            //    DataRow row = dt.NewRow();
+            //    row[0] = entry.GetPath();
+            //    row[1] = String.Join(", ", entry.GetTags());
+            //    row[2] = entry.GetRating();
+            //    dt.Rows.Add(row);
+            //}
+
+            //entriesGrid.Rows.Add(" ", " ", 3);
+            //entriesGrid.ItemsSource = dt.DefaultView;
+            //entriesGrid.Columns[0].Width = 500;
         }
 
         private void load_entries(object sender, RoutedEventArgs e)
         {
+            entriesGrid.Items.Clear();
             fillData();
         }
     }
