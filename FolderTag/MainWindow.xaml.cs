@@ -25,6 +25,31 @@ namespace FolderTag
     {
         private string pathRoot;
 
+        private void Save(List<Node> data)
+        {
+            string dir = @"c:\temp";
+            string serializationFile = System.IO.Path.Combine(dir, "salesmen.bin");
+
+            using (Stream stream = System.IO.File.Open(serializationFile, FileMode.Create))
+            {
+                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+                bformatter.Serialize(stream, data);
+            }
+        }
+
+        private void Load()
+        {
+            string dir = @"c:\temp";
+            string serializationFile = System.IO.Path.Combine(dir, "salesmen.bin");
+            using (Stream stream = System.IO.File.Open(serializationFile, FileMode.Open))
+            {
+                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+                List<Node> nodes = (List<Node>)bformatter.Deserialize(stream);
+                Constructor.LoadEntries(nodes);
+            }
+        }
 
         public MainWindow()
         {
@@ -239,6 +264,17 @@ namespace FolderTag
                 }
             }
             return searchResult;
+        }
+
+        private void save(object sender, RoutedEventArgs e)
+        {
+            Save(Constructor.GetEntries());
+        }
+
+        private void load(object sender, RoutedEventArgs e)
+        {
+            Load();
+            fillData();
         }
     }
 }

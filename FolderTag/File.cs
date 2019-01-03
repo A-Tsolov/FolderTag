@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FolderTag
 {
+    [Serializable]
     class File: Node
     {
         private long size;

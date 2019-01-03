@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO;
 
 namespace FolderTag
 {
+    [Serializable]
     static class Constructor
     {
         static private List<Node> entries = new List<Node>();
 
-        public static Node createNode(List<string> tags, int rating, string path, string type)
+public static Node createNode(List<string> tags, int rating, string path, string type)
         {
             if (path==null){
                 MessageBox.Show("Invalid file");
@@ -148,5 +150,9 @@ namespace FolderTag
                 return entries;
             }
 
+        public static void LoadEntries(List<Node> newEntries)
+        {
+            entries = newEntries;
+        }
     }
 }

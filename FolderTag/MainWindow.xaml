@@ -71,6 +71,8 @@
                     <Button Content="Search" HorizontalAlignment="Left" Width="75" Margin="10,104,0,0" Height="20" VerticalAlignment="Top" Click="load_entries"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Exclude tags" VerticalAlignment="Top" Margin="10,55,0,0"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Include tags" VerticalAlignment="Top" Margin="10,6,0,0"/>
+                    <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="141,27,0,0" VerticalAlignment="Top" Width="75" Click="save"/>
+                    <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="141,61,0,0" VerticalAlignment="Top" Width="75" Click="load"/>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FolderTag
 {
+    [Serializable]
     abstract class Node
     {
         public List<string> tags { get; set; }
