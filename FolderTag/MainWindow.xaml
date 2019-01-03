@@ -33,7 +33,7 @@
                     </Grid.ColumnDefinitions>
                     <TreeView x:Name="DirectoryTree" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,0,10" SelectedItemChanged="PrintTags" Grid.RowSpan="5" Grid.ColumnSpan="3"/>
                     <Button Content="Add" HorizontalAlignment="Left" Width="75" Margin="10,10,0,0" Click="AddEntry" Grid.Column="5" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.547,2.35"/>
-                    <TextBox x:Name="TagBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Enter Tag" Width="Auto" Margin="10,10,10,45" Grid.Column="3" Grid.ColumnSpan="2" Height="20"/>
+                    <TextBox x:Name="TagBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Enter Tag" Width="Auto" Margin="10,10,0,45" Grid.Column="3" Grid.ColumnSpan="2" Height="20"/>
                     <ComboBox x:Name="RatingBox" HorizontalAlignment="Left" Width="145" Margin="10,0,0,10" Height="21" VerticalAlignment="Bottom" Grid.Column="3">
                         <ListBoxItem Content="1"/>
                         <ListBoxItem Content="2"/>
@@ -43,7 +43,7 @@
                     </ComboBox>
                     <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="142" Margin="10,0,0,10" Click="ChooseDirectory" Grid.Column="3" Grid.Row="4" Height="32"/>
                     <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,10,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
-                    <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="86" Click="RemoveTag" Grid.Column="3" Grid.Row="4" Height="23"/>
+                    <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Click="RemoveTag" Grid.Column="3" Grid.Row="4" Height="23"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">

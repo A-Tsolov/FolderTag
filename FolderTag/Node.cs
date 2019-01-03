@@ -41,6 +41,7 @@ namespace FolderTag
         public void SetTags(List<string> tags)
         {
             this.tags = tags;
+            this.tags_string = String.Join(", ", tags);
         }
 
         public override string ToString()
@@ -49,14 +50,10 @@ namespace FolderTag
             return tagsString + rating.ToString() + path;
         }
 
-        public void AddTag(string ta)
-        {
-
-        }
-
         public void RemoveTag(string tag)
         {
             tags.Remove(tag);
+            this.tags_string = String.Join(", ", this.tags);
         }
     }
 }

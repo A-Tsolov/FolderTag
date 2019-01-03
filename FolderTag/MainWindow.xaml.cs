@@ -133,15 +133,6 @@ namespace FolderTag
             return path.TrimStart('\\');
         }
 
-        //private void PopulateResult()
-        //{
-        //    List<Node> entries = Constructor.GetEntries();
-        //    foreach (Node node in entries)
-        //    {
-        //        Results.Items.Add(node.GetPath());
-        //    }
-        //}
-
         private void AddEntryToTrees(Node node)
         {
             //Results.Items.Add(node.GetPath());
@@ -154,13 +145,6 @@ namespace FolderTag
             List<string> tags = tagsStr.Split(' ').ToList();
             return tags;
         }
-
-        //private void UpdateTags(object sender, RoutedPropertyChangedEventArgs<object> e)
-        //{
-
-        //}
-
-
 
         private void ShowTags()
         {
@@ -189,8 +173,6 @@ namespace FolderTag
                 }
             }
         }
-
-
 
         private void PrintTags(object sender, RoutedPropertyChangedEventArgs<object> e)
         {

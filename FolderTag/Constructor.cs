@@ -86,16 +86,9 @@ namespace FolderTag
             return null;
         }
 
-        //public static void UpdateNode()
-        //{
-
-        //}
-
         public static void UpdateTagList(Node node, List<string> newTags)
         {
             List<string> oldTags = node.GetTags();
-
-            
 
             newTags.AddRange(oldTags);
             var noDupes = new HashSet<string>(newTags); 
@@ -103,7 +96,6 @@ namespace FolderTag
             newTags.AddRange(noDupes);
 
             node.SetTags(newTags);
-            //return tags;
         }
 
         // Check if file is present
@@ -151,10 +143,10 @@ namespace FolderTag
             }
         }
 
-    public static List<Node> GetEntries()
-        {
-            return entries;
-        }
+        public static List<Node> GetEntries()
+            {
+                return entries;
+            }
 
     }
 }
