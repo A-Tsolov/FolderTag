@@ -27,9 +27,8 @@ namespace FolderTag
 
         private void Save(List<Node> data)
         {
-            string dir = @"c:\temp";
-            string serializationFile = System.IO.Path.Combine(dir, "salesmen.bin");
-
+            string dir = @".";
+            string serializationFile = System.IO.Path.Combine(dir, "tags_data.bin");
             using (Stream stream = System.IO.File.Open(serializationFile, FileMode.Create))
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
@@ -40,8 +39,8 @@ namespace FolderTag
 
         private void Load()
         {
-            string dir = @"c:\temp";
-            string serializationFile = System.IO.Path.Combine(dir, "salesmen.bin");
+            string dir = @".";
+            string serializationFile = System.IO.Path.Combine(dir, "tags_data.bin");
             using (Stream stream = System.IO.File.Open(serializationFile, FileMode.Open))
             {
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
@@ -275,6 +274,18 @@ namespace FolderTag
         {
             Load();
             fillData();
+        }
+
+        private void InteractGrid(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.DataGrid gd = (System.Windows.Controls.DataGrid)sender;
+            int selectedColumnIndex = gd.CurrentColumn.DisplayIndex;
+            var cellInfo = gd.SelectedCells[selectedColumnIndex];
+            var content = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
+            if (selectedColumnIndex == 0)
+            {
+                System.Diagnostics.Process.Start(content);
+            }
         }
     }
 }

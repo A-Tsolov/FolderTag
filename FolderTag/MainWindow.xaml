@@ -60,7 +60,7 @@
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="entriesGrid" Height="Auto" Margin="10" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="1,0" Loaded="load_entries" IsReadOnly="True" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <DataGrid x:Name="entriesGrid" Height="Auto" Margin="10" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="1,0" Loaded="load_entries" IsReadOnly="True" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" MouseDoubleClick="InteractGrid">
                         <DataGrid.Columns>
                             <!--  <DataGridTemplateColumn  />-->
                             <DataGridTextColumn Header="Path" Binding="{Binding path}" Width="*"/>
