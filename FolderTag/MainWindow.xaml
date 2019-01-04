@@ -13,15 +13,17 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
+        <Button Content="Save" HorizontalAlignment="Left" Margin="369,1,0,0" VerticalAlignment="Top" Width="75" Click="save" RenderTransformOrigin="2.813,6.7" Panel.ZIndex="1"/>
+        <Button Content="Load" HorizontalAlignment="Left" Margin="449,1,0,0" VerticalAlignment="Top" Width="75" Click="load" Panel.ZIndex="1"/>
+        <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="0,1,0,0">
             <TabItem Header="Add" Margin="-2,-2,-79,0">
                 <Grid Background="#FFE5E5E5" Height="Auto" Width="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinWidth="800" MinHeight="400">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="82*"/>
+                        <RowDefinition Height="81*"/>
+                        <RowDefinition Height="82*"/>
+                        <RowDefinition Height="81"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -71,8 +73,7 @@
                     <Button Content="Search" HorizontalAlignment="Left" Width="75" Margin="10,104,0,0" Height="20" VerticalAlignment="Top" Click="load_entries"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Exclude tags" VerticalAlignment="Top" Margin="10,55,0,0"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Include tags" VerticalAlignment="Top" Margin="10,6,0,0"/>
-                    <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="141,27,0,0" VerticalAlignment="Top" Width="75" Click="save"/>
-                    <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="141,61,0,0" VerticalAlignment="Top" Width="75" Click="load"/>
+
                 </Grid>
             </TabItem>
         </TabControl>
