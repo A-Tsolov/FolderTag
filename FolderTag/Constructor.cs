@@ -72,6 +72,18 @@ public static Node createNode(List<string> tags, int rating, string path, string
             return null;
         }
 
+        public static Node ReturnNodeFromPath(string path)
+        {
+            foreach (Node entry in entries)
+            {
+                if (entry.GetPath() == path)
+                {
+                    return entry;
+                }
+            }
+            return null;
+        }
+
         public static Node ReturnNodeWithSize(long size)
         {
             foreach (Node entry in entries)

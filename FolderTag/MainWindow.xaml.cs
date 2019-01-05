@@ -222,8 +222,9 @@ namespace FolderTag
             ShowTags();
         }
 
-        private void fillData()
+        public void FillData()
         {
+            entriesGrid.Items.Clear();
             List<Node> entries = search();
             foreach (Node entry in entries)
             {
@@ -233,8 +234,7 @@ namespace FolderTag
 
         private void load_entries(object sender, RoutedEventArgs e)
         {
-            entriesGrid.Items.Clear();
-            fillData();
+            FillData();
         }
 
         private List<Node> search()
@@ -273,18 +273,31 @@ namespace FolderTag
         private void load(object sender, RoutedEventArgs e)
         {
             Load();
-            fillData();
+            FillData();
         }
 
         private void InteractGrid(object sender, MouseButtonEventArgs e)
         {
             System.Windows.Controls.DataGrid gd = (System.Windows.Controls.DataGrid)sender;
+            if (gd.CurrentColumn == null)
+            {
+                return;
+            }
             int selectedColumnIndex = gd.CurrentColumn.DisplayIndex;
             var cellInfo = gd.SelectedCells[selectedColumnIndex];
             var content = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
             if (selectedColumnIndex == 0)
             {
                 System.Diagnostics.Process.Start(content);
+            }
+            if (selectedColumnIndex == 1)
+            {
+                string path = (gd.SelectedCells[0].Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
+                var newWindow = new Window1(path);
+                newWindow.TagsEditField.Text = content.Replace(",","");
+                newWindow.Owner = this;
+                newWindow.Show();
+                FillData();
             }
         }
     }

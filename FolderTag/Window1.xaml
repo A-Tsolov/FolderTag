@@ -1,0 +1,15 @@
+﻿<Window x:Class="FolderTag.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FolderTag"
+        mc:Ignorable="d"
+        Title="Window1" Height="121" Width="415" MinHeight="121" MinWidth="415" MaxHeight="121">
+    <Grid>
+        <Button x:Name="CancelTagEdit" Content="Cancel" HorizontalAlignment="Left" Width="75" Margin="10,59,0,0" Height="20" VerticalAlignment="Top" Click="Close"/>
+        <Button x:Name="AcceptTagEdits" Content="Accept" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="90,59,0,0" RenderTransformOrigin="0.357,-0.74" Click="UpdateTags"/>
+        <TextBox x:Name="TagsEditField" Height="23" TextWrapping="Wrap" Text="" Margin="10,31,10,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tags" VerticalAlignment="Top" Margin="10,10,0,0"/>
+    </Grid>
+</Window>
