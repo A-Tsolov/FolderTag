@@ -44,8 +44,9 @@
                         <ListBoxItem Content="5"/>
                     </ComboBox>
                     <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="142" Margin="10,0,0,10" Click="ChooseDirectory" Grid.Column="3" Grid.Row="4" Height="32"/>
-                    <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,10,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+                    <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,13,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3"/>
                     <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Click="RemoveTag" Grid.Column="3" Grid.Row="4" Height="23"/>
+                    <Image x:Name="ImageBoxAddTab" Grid.Column="4" HorizontalAlignment="Stretch" Height="224" Margin="10" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="309" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">
@@ -61,7 +62,7 @@
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="entriesGrid" Height="Auto" Margin="10" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="1,0" Loaded="load_entries" IsReadOnly="True" HorizontalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" MouseDoubleClick="InteractGrid" SelectionChanged="showImage">
+                    <DataGrid x:Name="entriesGrid" Height="Auto" Margin="10" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="1,0" Loaded="load_entries" IsReadOnly="True" HorizontalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" MouseDoubleClick="InteractGrid" SelectionChanged="ShowImageSearchTab">
                         <DataGrid.Columns>
                             <!--  <DataGridTemplateColumn  />-->
                             <DataGridTextColumn Header="Path" Binding="{Binding path}" Width="*"/>
@@ -75,11 +76,12 @@
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Exclude tags" VerticalAlignment="Top" Margin="10,55,0,0"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Include tags" VerticalAlignment="Top" Margin="10,6,0,0"/>
                     <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="10,5,10,0" Height="6" VerticalAlignment="Top" Panel.ZIndex="1" />
-                    <Image x:Name="ImageBoxSearchTab" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Column="1" Margin="9,14,10,0" Grid.RowSpan="2"/>
+                    <Image x:Name="ImageBoxSearchTab" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Column="1" Margin="9,14,10,56" Grid.RowSpan="2"/>
 
                 </Grid>
             </TabItem>
         </TabControl>
+        <Canvas HorizontalAlignment="Left" Height="100" Margin="387,-16,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
     

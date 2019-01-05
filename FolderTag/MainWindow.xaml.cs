@@ -301,17 +301,18 @@ namespace FolderTag
             }
         }
 
-        private void showImage(object sender, SelectionChangedEventArgs e)
+        private void ShowImageSearchTab(object sender, SelectionChangedEventArgs e)
         {
             System.Windows.Controls.DataGrid gd = (System.Windows.Controls.DataGrid)sender;
             if (gd.CurrentColumn == null)
             {
                 return;
             }
-            var cellInfo = gd.SelectedCells[0];
-            var content = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
+
             try
             {
+                var cellInfo = gd.SelectedCells[0];
+                var content = (cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock).Text;
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(content);
@@ -319,6 +320,11 @@ namespace FolderTag
                 ImageBoxSearchTab.Source = bitmap;
             }
             catch(System.NotSupportedException)
+            {
+                ImageBoxSearchTab.Source = null;
+                return;
+            }
+            catch (System.NullReferenceException)
             {
                 ImageBoxSearchTab.Source = null;
                 return;
