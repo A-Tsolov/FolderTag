@@ -53,6 +53,7 @@ namespace FolderTag
         public MainWindow()
         {
             InitializeComponent();
+            Load();
         }
 
         private void ChooseDirectory(object sender, RoutedEventArgs e)
@@ -225,12 +226,12 @@ namespace FolderTag
             }
             catch (System.NotSupportedException)
             {
-                ImageBoxSearchTab.Source = null;
+                ImageBoxAddTab.Source = null;
                 return;
             }
             catch (System.NullReferenceException)
             {
-                ImageBoxSearchTab.Source = null;
+                ImageBoxAddTab.Source = null;
                 return;
             }
         }
