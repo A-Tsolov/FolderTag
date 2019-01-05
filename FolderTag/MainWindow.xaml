@@ -46,7 +46,7 @@
                     <Button Content="Choose Directory" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="142" Margin="10,0,0,10" Click="ChooseDirectory" Grid.Column="3" Grid.Row="4" Height="32"/>
                     <ListBox x:Name="TagsFirstPage" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10,10,13,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="3"/>
                     <Button Content="Remove Tag" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="142" Click="RemoveTag" Grid.Column="3" Grid.Row="4" Height="23"/>
-                    <Image x:Name="ImageBoxAddTab" Grid.Column="4" HorizontalAlignment="Stretch" Height="224" Margin="10" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="309" Grid.ColumnSpan="2"/>
+                    <Image x:Name="ImageBoxAddTab" Grid.Column="4" HorizontalAlignment="Stretch" Height="Auto" Margin="10" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Search" Margin="80,-2,-179,0">

@@ -201,7 +201,40 @@ namespace FolderTag
         private void PrintTags(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             ShowTags();
+            ShowImageSearchTab();
         }
+
+        private void ShowImageSearchTab()
+        {
+
+            TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
+            if (selectedNode == null)
+            {
+                System.Windows.MessageBox.Show("Select a file");
+                return;
+            }
+
+            try
+            {
+                string path = getPath(selectedNode);
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(path);
+                bitmap.EndInit();
+                ImageBoxAddTab.Source = bitmap;
+            }
+            catch (System.NotSupportedException)
+            {
+                ImageBoxSearchTab.Source = null;
+                return;
+            }
+            catch (System.NullReferenceException)
+            {
+                ImageBoxSearchTab.Source = null;
+                return;
+            }
+        }
+    
 
         private void RemoveTag(object sender, RoutedEventArgs e)
         {
