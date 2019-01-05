@@ -296,7 +296,7 @@ namespace FolderTag
                 var newWindow = new Window1(path);
                 newWindow.TagsEditField.Text = content.Replace(",","");
                 newWindow.Owner = this;
-                newWindow.Show();
+                newWindow.ShowDialog();
                 FillData();
             }
         }
