@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FolderTag"
         mc:Ignorable="d"
-        Title="Window1" Height="121" Width="415" MinHeight="121" MinWidth="415" MaxHeight="121">
+        Title="Modify Tags" Height="121" Width="415" MinHeight="121" MinWidth="415" MaxHeight="121">
     <Grid>
         <Button x:Name="CancelTagEdit" Content="Cancel" HorizontalAlignment="Left" Width="75" Margin="10,59,0,0" Height="20" VerticalAlignment="Top" Click="Close"/>
         <Button x:Name="AcceptTagEdits" Content="Accept" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="90,59,0,0" RenderTransformOrigin="0.357,-0.74" Click="UpdateTags"/>

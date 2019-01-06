@@ -234,6 +234,10 @@ namespace FolderTag
                 ImageBoxAddTab.Source = null;
                 return;
             }
+            catch (System.UnauthorizedAccessException)
+            {
+                return;
+            }
         }
     
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FolderTag"
         mc:Ignorable="d"
-        Title="MainWindow" Height="351.849" Width="837.965" ResizeMode="CanResizeWithGrip" MinWidth="830" MinHeight="460">
+        Title="File Tag" Height="351.849" Width="837.965" ResizeMode="CanResizeWithGrip" MinWidth="830" MinHeight="460" Icon="ecommerce-collection-outlines-02-512 (2).ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -76,7 +76,7 @@
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Exclude tags" VerticalAlignment="Top" Margin="10,55,0,0"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Include tags" VerticalAlignment="Top" Margin="10,6,0,0"/>
                     <GridSplitter Grid.Row="2" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Margin="10,5,10,0" Height="6" VerticalAlignment="Top" Panel.ZIndex="1" />
-                    <Image x:Name="ImageBoxSearchTab" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Column="1" Margin="9,14,10,56" Grid.RowSpan="2"/>
+                    <Image x:Name="ImageBoxSearchTab" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Grid.Column="1" Margin="9,14,10,10" Grid.RowSpan="2"/>
 
                 </Grid>
             </TabItem>
