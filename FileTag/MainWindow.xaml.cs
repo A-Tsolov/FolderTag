@@ -120,7 +120,7 @@ namespace FolderTag
                 System.Windows.MessageBox.Show("Enter a score");
                 return;
             }
-            string path = GetPath(selectedNode);
+            string path = getPath(selectedNode);
 
             Node node = null;
             try
@@ -142,7 +142,7 @@ namespace FolderTag
         }
 
         // Returns the path of the selected node
-        private string GetPath(TreeViewItem item)
+        private string getPath(TreeViewItem item)
         {
             string path = "";
 
@@ -179,7 +179,7 @@ namespace FolderTag
             {
                 return;
             }
-            string path = GetPath(selectedNode);
+            string path = getPath(selectedNode);
             Node node = null;
             if (System.IO.Directory.Exists(path)) {
                 node = Constructor.ReturnFolderWithPath(path);
@@ -217,7 +217,7 @@ namespace FolderTag
 
             try
             {
-                string path = GetPath(selectedNode);
+                string path = getPath(selectedNode);
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
                 bitmap.UriSource = new Uri(path);
@@ -250,7 +250,7 @@ namespace FolderTag
             }
             string selectedTag = selectedObject.ToString();
             TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
-            string path = GetPath(selectedNode);
+            string path = getPath(selectedNode);
             long size = new System.IO.FileInfo(path).Length;
             Node node = Constructor.ReturnNodeWithSize(size);
             if (node != null)
@@ -263,19 +263,19 @@ namespace FolderTag
         public void FillData()
         {
             entriesGrid.Items.Clear();
-            List<Node> entries = Search();
+            List<Node> entries = search();
             foreach (Node entry in entries)
             {
                 entriesGrid.Items.Add(entry);
             }
         }
 
-        private void LoadEntries(object sender, RoutedEventArgs e)
+        private void load_entries(object sender, RoutedEventArgs e)
         {
             FillData();
         }
 
-        private List<Node> Search()
+        private List<Node> search()
         {
             List<string> tagsInclude = FormTagList(TagsToInclude.Text);
             List<string> tagsExclude = FormTagList(TagsToExclude.Text);
@@ -303,12 +303,12 @@ namespace FolderTag
             return searchResult;
         }
 
-        private void Save(object sender, RoutedEventArgs e)
+        private void save(object sender, RoutedEventArgs e)
         {
             Save(Constructor.GetEntries());
         }
 
-        private void Load(object sender, RoutedEventArgs e)
+        private void load(object sender, RoutedEventArgs e)
         {
             Load();
             FillData();

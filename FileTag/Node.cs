@@ -12,7 +12,7 @@ namespace FolderTag
         public List<string> tags { get; set; }
         public int rating { get; set; }
         public string path { get; set; }
-        public string tagsString { get; set; }
+        public string tags_string { get; set; }
 
         public Node(List<string> tags, int rating, string path)
         {
@@ -20,8 +20,8 @@ namespace FolderTag
             this.rating = rating;
             this.path = path;
 
-            tagsString = String.Join(", ", tags);
-            this.tagsString = tagsString;
+            tags_string = String.Join(", ", tags);
+            this.tags_string = tags_string;
         }
 
         public int GetRating()
@@ -42,7 +42,7 @@ namespace FolderTag
         public void SetTags(List<string> tags)
         {
             this.tags = tags;
-            this.tagsString = String.Join(", ", tags);
+            this.tags_string = String.Join(", ", tags);
         }
 
         public override string ToString()
@@ -54,7 +54,7 @@ namespace FolderTag
         public void RemoveTag(string tag)
         {
             tags.Remove(tag);
-            this.tagsString = String.Join(", ", this.tags);
+            this.tags_string = String.Join(", ", this.tags);
         }
     }
 }
