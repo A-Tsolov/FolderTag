@@ -368,5 +368,20 @@ namespace FolderTag
                 return;
             }
         }
+
+        private void OpenFile(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TreeViewItem selectedNode = DirectoryTree.SelectedItem as TreeViewItem;
+                if (selectedNode == null)
+                {
+                    System.Windows.MessageBox.Show("Select a file");
+                    return;
+                }
+                string path = GetPath(selectedNode);
+                System.Diagnostics.Process.Start(path);
+            }
+        }
     }
 }

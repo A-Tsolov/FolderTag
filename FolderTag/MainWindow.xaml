@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="82*"/>
                         <ColumnDefinition Width="83*"/>
                     </Grid.ColumnDefinitions>
-                    <TreeView x:Name="DirectoryTree" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10" SelectedItemChanged="PrintTags" Grid.RowSpan="5" Grid.ColumnSpan="3" Padding="10"/>
+                    <TreeView x:Name="DirectoryTree" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Margin="10" SelectedItemChanged="PrintTags" Grid.RowSpan="5" Grid.ColumnSpan="3" Padding="10" KeyDown="OpenFile"/>
                     <Button Content="Add" HorizontalAlignment="Left" Width="75" Margin="10,10,0,0" Click="AddEntry" Grid.Column="5" Height="20" VerticalAlignment="Top" RenderTransformOrigin="1.547,2.35"/>
                     <TextBox x:Name="TagBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="Enter Tag" Width="Auto" Margin="10,10,0,45" Grid.Column="3" Grid.ColumnSpan="2" Height="20"/>
                     <ComboBox x:Name="RatingBox" HorizontalAlignment="Left" Margin="10,0,10,10" Height="21" VerticalAlignment="Bottom" Grid.Column="3" Width="142">
